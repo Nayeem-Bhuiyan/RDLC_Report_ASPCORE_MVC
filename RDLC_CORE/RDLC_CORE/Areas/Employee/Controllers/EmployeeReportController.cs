@@ -34,7 +34,7 @@ namespace RDLC_CORE.Areas.Employee.Controllers
 
             string mimeType = "";
             int extension = 1;
-            var path = $"{_webHostEnvironment.WebRootPath}\\Reports\\ReportExpense.rdlc";
+            var path = $"{_webHostEnvironment.ContentRootPath}Reports\\EmployeeReport.rdlc";
 
             Dictionary<string, string> parameters = new Dictionary<string, string>();
             parameters.Add("CompanyName", "ABC Limted");

@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc.Razor;
+using RDLC_CORE.Services.EmployeeReportService;
+using RDLC_CORE.Services.EmployeeReportService.Interface;
 using System;
 using System.Reflection.PortableExecutable;
 
@@ -28,7 +30,7 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
 
 #endregion
 
-
+builder.Services.AddScoped<IEmployeeDataService, EmployeeDataService>();
 
 var app = builder.Build();
 

@@ -27,14 +27,14 @@ namespace RDLC_CORE.Services.EmployeeReportService
                     using (SqlCommand cmd = new SqlCommand("Sp_GetEmployeeDetails", thisConnection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                         thisConnection.OpenAsync();
+                         thisConnection.Open();
                         SqlDataReader rdr =  cmd.ExecuteReader();
                         while (rdr.Read())
                         {
                             EmployeeReportVm objEmployee = new EmployeeReportVm();
    
-                            objEmployee.EmployeeId = Convert.ToInt32(rdr["DivisionId"]);
-                            objEmployee.Age = Convert.ToInt32(rdr["DivisionId"]);
+                            objEmployee.EmployeeId = Convert.ToInt32(rdr["EmployeeId"]);
+                            objEmployee.Age = Convert.ToInt32(rdr["Age"]);
                             objEmployee.EmployeeName = rdr["EmployeeName"].ToString();
                             objEmployee.Address = rdr["Address"].ToString();
                             objEmployee.DateOfBirth =Convert.ToDateTime(rdr["DateOfBirth"]);
