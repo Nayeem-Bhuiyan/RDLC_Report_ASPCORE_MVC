@@ -3,6 +3,8 @@ using AspNetCore.Reporting;
 using Microsoft.AspNetCore.Hosting;
 using System.Composition;
 using System.Data;
+using RDLC_CORE.Services.EmployeeReportService.Interface;
+using RDLC_CORE.Areas.Employee.Models;
 
 namespace RDLC_CORE.Areas.Employee.Controllers
 {
@@ -10,10 +12,12 @@ namespace RDLC_CORE.Areas.Employee.Controllers
     {
     
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public EmployeeReportController(IWebHostEnvironment webHostEnvironment)
+        private readonly IEmployeeDataService _employeeDataService;
+        public EmployeeReportController(IWebHostEnvironment webHostEnvironment, IEmployeeDataService employeeDataService)
         {
-
+           
             _webHostEnvironment = webHostEnvironment;
+            _employeeDataService=employeeDataService;
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
 
@@ -22,22 +26,22 @@ namespace RDLC_CORE.Areas.Employee.Controllers
             return View();
         }
 
-        public IActionResult Report()
+        public async IActionResult Report()
         {
-            var dt = new DataTable();
-            dt = report.GetReportList();  //Get Store procedure result set
+
+            IEnumerable<EmployeeReportVm> EmpDetailsList =await _employeeDataService.GetAllAsync();  //Get Store procedure result set
 
             string mimeType = "";
             int extension = 1;
             var path = $"{_webHostEnvironment.WebRootPath}\\Reports\\ReportExpense.rdlc";
 
             Dictionary<string, string> parameters = new Dictionary<string, string>();
-            parameters.Add("prm1", "RDCL Report");
-            parameters.Add("prm2", DateTime.Now.ToString("dd-MM-yyyy"));
-            parameters.Add("prm3", "Expense Report");
+            parameters.Add("CompanyName", "ABC Limted");
+            parameters.Add("prmReportHeadLine","Employee Details Info" );
+            parameters.Add("prmDate", DateTime.Now.ToString("dd-MMM-yyyy"));
 
             LocalReport localReport = new LocalReport(path);
-            localReport.AddDataSource("DataSetName", dt);  //This DataSetName must be used  in .rdlc report datasetName
+            localReport.AddDataSource("dsEmployeeRecord", EmpDetailsList);  //This DataSetName must be used  in .rdlc report datasetName
 
             var res = localReport.Execute(RenderType.Pdf, extension, parameters, mimeType);
             return File(res.MainStream, "application/pdf");
