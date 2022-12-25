@@ -15,7 +15,7 @@ namespace RDLC_CORE.Services.EmployeeReportService
         }
 
         #region GetAllRecord
-        public async Task<IEnumerable<EmployeeReportVm>> GetAllAsync()
+        public IEnumerable<EmployeeReportVm> GetAllAsync()
         {
 
             List<EmployeeReportVm> EmployeeList = new List<EmployeeReportVm>();
@@ -27,9 +27,9 @@ namespace RDLC_CORE.Services.EmployeeReportService
                     using (SqlCommand cmd = new SqlCommand("Sp_GetEmployeeDetails", thisConnection))
                     {
                         cmd.CommandType = CommandType.StoredProcedure;
-                        await thisConnection.OpenAsync();
-                        SqlDataReader rdr = await cmd.ExecuteReaderAsync();
-                        while (await rdr.ReadAsync())
+                         thisConnection.OpenAsync();
+                        SqlDataReader rdr =  cmd.ExecuteReader();
+                        while (rdr.Read())
                         {
                             EmployeeReportVm objEmployee = new EmployeeReportVm();
    

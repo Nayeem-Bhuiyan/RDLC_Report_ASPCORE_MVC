@@ -8,6 +8,7 @@ using RDLC_CORE.Areas.Employee.Models;
 
 namespace RDLC_CORE.Areas.Employee.Controllers
 {
+    [Area("Employee")]
     public class EmployeeReportController : Controller
     {
     
@@ -25,11 +26,11 @@ namespace RDLC_CORE.Areas.Employee.Controllers
         {
             return View();
         }
-
-        public async IActionResult Report()
+        [HttpGet]
+        public  IActionResult Report()
         {
 
-            IEnumerable<EmployeeReportVm> EmpDetailsList =await _employeeDataService.GetAllAsync();  //Get Store procedure result set
+            IEnumerable<EmployeeReportVm> EmpDetailsList = _employeeDataService.GetAllAsync();  //Get Store procedure result set
 
             string mimeType = "";
             int extension = 1;
