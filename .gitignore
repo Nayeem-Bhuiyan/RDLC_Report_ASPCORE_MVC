@@ -1,0 +1,6 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/RDLC_CORE/.vs/RDLC_CORE/v17
+/RDLC_CORE/RDLC_CORE/obj
