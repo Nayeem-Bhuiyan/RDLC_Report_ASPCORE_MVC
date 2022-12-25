@@ -748,7 +748,9 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Parameters!prmDate.Value</Value>
-                      <Style />
+                      <Style>
+                        <Format>dd-MMM-yyyy</Format>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style>
