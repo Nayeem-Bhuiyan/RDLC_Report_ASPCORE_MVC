@@ -523,7 +523,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!DateOfBirth.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>dd-MMM-yyyy</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -636,8 +638,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>dsEmployeeRecord</DataSetName>
-            <Top>0.50917in</Top>
-            <Left>0.14458in</Left>
+            <Top>0.25917in</Top>
+            <Left>0.26958in</Left>
             <Height>0.5in</Height>
             <Width>8in</Width>
             <Style>
@@ -647,13 +649,13 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>1.8125in</Height>
+        <Height>0.875in</Height>
         <Style />
       </Body>
       <Width>8.55083in</Width>
       <Page>
         <PageHeader>
-          <Height>1in</Height>
+          <Height>1.0625in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -666,6 +668,7 @@
                     <TextRun>
                       <Value>=Parameters!CompanyName.Value</Value>
                       <Style>
+                        <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -676,9 +679,9 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox17</rd:DefaultName>
-              <Top>0.47792in</Top>
+              <Top>0.70361in</Top>
               <Left>0.14458in</Left>
-              <Height>0.25in</Height>
+              <Height>0.32292in</Height>
               <Width>8in</Width>
               <Style>
                 <Border>
@@ -699,6 +702,7 @@
                     <TextRun>
                       <Value>=Parameters!prmReportHeadLine.Value</Value>
                       <Style>
+                        <FontSize>16pt</FontSize>
                         <FontWeight>Bold</FontWeight>
                       </Style>
                     </TextRun>
@@ -711,7 +715,7 @@
               <rd:DefaultName>prmReportHeadLine</rd:DefaultName>
               <Top>0.13417in</Top>
               <Left>0.14458in</Left>
-              <Height>0.25in</Height>
+              <Height>0.38889in</Height>
               <Width>8in</Width>
               <ZIndex>1</ZIndex>
               <Style>
