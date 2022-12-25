@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <Folder Include="Areas\Employee\Data\" />
+    <Folder Include="Areas\Employee\Views\" />
     <Folder Include="Reports\" />
   </ItemGroup>
 

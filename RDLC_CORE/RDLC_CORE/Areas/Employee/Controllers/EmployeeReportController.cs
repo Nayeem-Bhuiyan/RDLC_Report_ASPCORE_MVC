@@ -22,10 +22,7 @@ namespace RDLC_CORE.Areas.Employee.Controllers
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+
         [HttpGet]
         public  IActionResult Report()
         {
