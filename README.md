@@ -9,7 +9,7 @@ AspCore-6.0
 
 Visual Studio2022
 
-#Nugate Packages:
+# Nugate Packages:
 
 AspNetCore.Reporting
 
